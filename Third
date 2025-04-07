@@ -1,0 +1,33 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+class ListNode{
+    int data;
+    int idx;
+    ListNode ridx;
+    ListNode(int data){
+        this.data = data;
+    }
+}
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner s1 = new Scanner(System.in);
+        ListNode temp = head;
+        HashMap<Integer,ListNode> map = new HashMap<>();
+        int cnt = 0;
+        while (temp != null){
+            map.put(cnt,temp);
+            cnt++;
+            temp = temp.next;
+        }
+        
+        temp = head;
+        while (temp != null){
+            int idx1 = temp.idx;
+            temp.ridx = map.get(idx1);
+            temp = temp.next;
+        }
+        return head;
+        
+    }
+}
