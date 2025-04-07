@@ -1,0 +1,45 @@
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+import java.util.*;
+class Main {
+    public static void main(String[] args) {
+        Scanner s1 = new Scanner(System.in);
+        int n = s1.nextInt();
+        System.out.println(Ans(n));
+        
+    
+    }
+    
+    public static int Get(int n){
+        int temp = 0,t1 = n;
+        while (t1 != 0){
+            int y = t1 % 10;
+            temp = temp + (y * y);
+            t1 /= 10;
+        }
+        return temp;
+    }
+    
+    public static boolean Ans(int n){
+         HashSet<Integer> hs = new HashSet<>();
+         if (n == 7){
+             return true;
+         }
+         while (n >= 9){
+            n = Get(n);
+            if (n == 1){
+                return true;
+            }
+            
+            else if (hs.contains(n)){
+                return false;
+            }
+            
+            else{
+                hs.add(n);
+            }
+            
+        }
+        return n == 1;
+    }
+}
